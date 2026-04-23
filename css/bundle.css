@@ -1,0 +1,402 @@
+.site-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0),
+    rgba(29, 79, 150, 0.03)
+  );
+}
+
+.hero,
+.page-hero,
+.service-hero,
+.legal-hero {
+  position: relative;
+  overflow: clip;
+}
+
+.hero::before,
+.page-hero::before,
+.service-hero::before,
+.legal-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: none;
+  pointer-events: none;
+}
+
+.hero-home {
+  padding: 12px 0 0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 0;
+  align-items: stretch;
+}
+
+.page-hero__grid,
+.service-hero__grid {
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.hero-copy {
+  display: grid;
+  gap: 22px;
+  align-content: center;
+  background: var(--bg-accent);
+  color: #ffffff;
+  padding: clamp(34px, 4.5vw, 56px);
+  min-height: calc(100svh - var(--header-height) - 44px);
+}
+
+.hero-copy__lead {
+  max-width: 34ch;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.hero-actions,
+.cta-panel__actions,
+.contact-hero__actions,
+.service-hero__actions,
+.section-end-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-meta div,
+.reason-grid div,
+.trust-layout__list div {
+  padding: 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.hero-meta strong,
+.reason-grid strong,
+.trust-layout__list strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.hero-copy .section-chip {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.hero-copy h1,
+.hero-copy strong,
+.hero-copy span,
+.hero-copy .button--ghost {
+  color: #ffffff;
+}
+
+.hero-visual {
+  position: relative;
+  min-height: calc(100svh - var(--header-height) - 44px);
+  background: #dbe7f3;
+}
+
+.hero-visual__panel {
+  position: relative;
+  z-index: 1;
+  display: block;
+  padding: 0;
+  height: 100%;
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.hero-visual__image,
+.why-call__image,
+.story-image img,
+.service-hero__visual {
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.hero-visual__image img,
+.why-call__image img,
+.story-image img,
+.service-hero__visual img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-visual__points {
+  display: none;
+}
+
+.hero-ambient {
+  display: none;
+}
+
+.trust-strip__inner {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  padding: 28px 0 0;
+}
+
+.trust-pill {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 18px;
+  border-radius: 0;
+  border: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.trust-pill i {
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.service-bands,
+.process-timeline,
+.principle-grid,
+.situation-cards,
+.faq-list,
+.contact-cards,
+.emergency-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.service-band,
+.process-step,
+.principle-card,
+.situation-card,
+.contact-card,
+.service-column,
+.featured-service-card,
+.service-feature,
+.emergency-card {
+  padding: 28px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+.faq-item {
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+.service-band {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr auto;
+  gap: 24px;
+  align-items: center;
+}
+
+.service-band__meta {
+  display: grid;
+  gap: 10px;
+}
+
+.service-band__meta span,
+.category-index {
+  color: var(--surface-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.76rem;
+}
+
+.why-call__grid,
+.detail-grid,
+.story-layout,
+.trust-layout,
+.contact-layout__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.reason-grid,
+.why-call__stats {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.why-call__visual,
+.contact-form-card,
+.page-hero__aside,
+.about-hero__card {
+  padding: 24px;
+  border-radius: 18px;
+}
+
+.process-timeline {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.process-step__index,
+.detail-process__step span {
+  display: inline-flex;
+  margin-bottom: 18px;
+  color: var(--accent);
+  font-size: 1.4rem;
+  font-family: var(--font-display);
+}
+
+.cta-panel {
+  display: flex;
+  justify-content: space-between;
+  gap: 22px;
+  align-items: center;
+  padding: 34px;
+  border-radius: 22px;
+  background: var(--bg-accent);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.cta-panel h2,
+.cta-panel .section-chip,
+.cta-panel .button--ghost {
+  color: #ffffff;
+}
+
+.cta-panel .section-chip {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.page-hero__aside ul,
+.about-hero__card ul,
+.contact-hero__card ul {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.contact-link {
+  font-size: 1.25rem;
+  color: var(--accent-2);
+  font-weight: 800;
+}
+
+.contact-form {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 8px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #f8fbff;
+  color: var(--text);
+}
+
+.form-note {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.legal-copy {
+  padding: 36px;
+  border-radius: 20px;
+  display: grid;
+  gap: 18px;
+}
+
+.legal-copy h2 {
+  font-size: clamp(1.4rem, 2vw, 2rem);
+}
+
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.1rem;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.faq-item[open] {
+  background: #f8fbff;
+}
+
+.faq-item p {
+  margin-top: 16px;
+}
+
+@media (max-width: 1080px) {
+  .hero-grid,
+  .page-hero__grid,
+  .service-hero__grid,
+  .why-call__grid,
+  .detail-grid,
+  .story-layout,
+  .trust-layout,
+  .contact-layout__grid,
+  .service-band,
+  .process-timeline,
+  .trust-strip__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 780px) {
+  .hero-home {
+    padding: 16px 0 0;
+  }
+
+  .hero-meta,
+  .reason-grid,
+  .why-call__stats,
+  .cta-panel,
+  .contact-hero__actions {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .service-band,
+  .cta-panel {
+    padding: 24px;
+  }
+
+  .hero-copy {
+    min-height: auto;
+  }
+
+  .hero-visual {
+    min-height: auto;
+  }
+}

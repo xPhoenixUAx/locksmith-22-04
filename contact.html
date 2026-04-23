@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact the Locksmith Access Service | Calls, Email & Service Area</title>
+  <meta name="description" content="Call, email, or send a message for locksmith request intake, security upgrade questions, lockouts, rekeying, and access-related guidance across the local service area.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/bundle.css">
+  <link rel="stylesheet" href="/css/pages/contact.css">
+</head>
+<body class="page-contact">
+  <div class="site-shell">
+    <header class="site-header" data-header>
+      <div class="container header-inner">
+        <a class="brand-mark" href="/index.html" aria-label="Homepage">
+          <span class="brand-mark__eyebrow">Local locksmith access</span>
+          <span class="brand-mark__name" data-company-name></span>
+        </a>
+        <nav class="desktop-nav" aria-label="Primary">
+          <a href="/services.html">Services</a>
+          <a href="/about.html">About</a>
+          <a href="/contact.html" class="is-active">Contact</a>
+        </nav>
+        <div class="header-actions">
+          <a class="button button--ghost" href="/contact.html">Submit Request</a>
+          <a class="button button--primary" data-phone-link href="#"><span class="button__shine"></span><span data-phone-text></span></a>
+          <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" data-menu-toggle>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <aside class="mobile-menu" data-mobile-menu aria-hidden="true">
+      <div class="mobile-menu__top">
+        <a class="brand-mark brand-mark--mobile" href="/index.html">
+          <span class="brand-mark__eyebrow">Local locksmith access</span>
+          <span class="brand-mark__name" data-company-name></span>
+        </a>
+        <button class="menu-close" type="button" aria-label="Close navigation" data-menu-close>
+          <i class="ri-close-large-line"></i>
+        </button>
+      </div>
+      <div class="mobile-menu__body">
+        <p class="mobile-menu__support">Explore access, security, and lock solutions with local clarity.</p>
+        <nav class="mobile-menu__nav">
+          <a href="/index.html">Home</a>
+          <a href="/services.html">Services</a>
+          <a href="/about.html">About</a>
+          <a href="/contact.html">Contact</a>
+        </nav>
+        <div class="mobile-menu__cta">
+          <a class="button button--primary button--block" data-phone-link href="#"><span data-phone-text></span></a>
+          <a class="button button--ghost button--block" href="/contact.html">Open Request Form</a>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <section class="page-hero contact-hero">
+        <div class="container contact-hero__grid">
+          <div data-reveal="fade-up">
+            <span class="section-chip">Contact and intake</span>
+            <h1>Choose the fastest route to clarify a locksmith request.</h1>
+            <p>Call for urgent access issues, email for non-urgent questions, or send a message below with property type, issue, and preferred timing to make the request easier to sort.</p>
+            <div class="contact-hero__actions">
+              <a class="button button--primary" data-phone-link href="#"><span data-phone-button-label></span></a>
+              <a class="button button--ghost" data-email-link href="#"><span data-email-text></span></a>
+            </div>
+          </div>
+          <div class="contact-hero__card glass-panel" data-reveal="fade-left">
+            <strong>Response guidance</strong>
+            <ul>
+              <li>Use phone for lockouts, broken keys, and immediate access issues</li>
+              <li>Use email for non-urgent questions, quotes, and upgrade planning</li>
+              <li>Service area: <span data-service-area></span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-layout">
+        <div class="container contact-layout__grid">
+          <div class="contact-cards">
+            <article class="contact-card glass-panel" data-reveal="fade-up">
+              <span class="section-chip">Phone</span>
+              <h2>Urgent requests</h2>
+              <a class="contact-link" data-phone-link href="#"><span data-phone-text></span></a>
+              <p>Best for urgent lockouts, broken key situations, vehicle access, and fast triage when time matters.</p>
+            </article>
+            <article class="contact-card" data-reveal="fade-up" data-reveal-delay="0.08">
+              <span class="section-chip">Email</span>
+              <h2>Non-urgent questions</h2>
+              <a class="contact-link" data-email-link href="#"><span data-email-text></span></a>
+              <p>Useful for photos, property details, multi-door projects, business requests, and upgrade-related questions.</p>
+            </article>
+            <article class="contact-card" data-reveal="fade-up" data-reveal-delay="0.16">
+              <span class="section-chip">Location</span>
+              <h2>Service area and hours</h2>
+              <p data-company-address></p>
+              <p data-business-hours></p>
+              <p data-company-id></p>
+            </article>
+          </div>
+
+          <div class="contact-form-card glass-panel" data-reveal="fade-left">
+            <span class="section-chip">Message form</span>
+            <h2>Send a request</h2>
+            <form class="contact-form">
+              <label>
+                Full name
+                <input type="text" name="name" placeholder="Request name">
+              </label>
+              <label>
+                Phone number
+                <input type="tel" name="phone" placeholder="Best callback number">
+              </label>
+              <label>
+                Email address
+                <input type="email" name="email" placeholder="you@example.com">
+              </label>
+              <label>
+                Service type
+                <select name="service">
+                  <option>Residential locksmith</option>
+                  <option>Commercial locksmith</option>
+                  <option>Automotive locksmith</option>
+                  <option>Emergency locksmith</option>
+                </select>
+              </label>
+              <label>
+                Message
+                <textarea name="message" rows="6" placeholder="Describe the issue, property or vehicle type, location, and timing needs."></textarea>
+              </label>
+              <button class="button button--primary button--block" type="submit">Send Request</button>
+              <p class="form-note">This static demo form is styled for production use. Connect it to your preferred intake backend or CRM endpoint.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" data-site-footer></footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="/js/site-config.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
