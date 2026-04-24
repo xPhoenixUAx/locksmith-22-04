@@ -65,12 +65,6 @@
                 <span>${config.companyName || ""}</span>
               </a>
               <p>${config.footerTextPrimary || ""}</p>
-              <div class="footer-socials" aria-label="Social links">
-                <a href="#" aria-label="Facebook"><i class="ri-facebook-fill" aria-hidden="true"></i></a>
-                <a href="#" aria-label="Instagram"><i class="ri-instagram-line" aria-hidden="true"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="ri-linkedin-fill" aria-hidden="true"></i></a>
-                <a href="#" aria-label="X"><i class="ri-twitter-x-line" aria-hidden="true"></i></a>
-              </div>
             </div>
             <div class="footer-column">
               <h3>Quick Links</h3>
@@ -150,12 +144,28 @@
 
     const mobileServices = qs('.mobile-menu__nav a[href="/services.html"]');
     if (mobileServices && !qs(".mobile-services")) {
+      mobileServices.classList.add("mobile-services-trigger");
+      mobileServices.setAttribute("href", "#");
+      mobileServices.setAttribute("role", "button");
+      mobileServices.setAttribute("aria-expanded", "false");
+      mobileServices.insertAdjacentHTML("beforeend", '<i class="ri-arrow-down-s-line" aria-hidden="true"></i>');
+
       const mobileList = document.createElement("div");
       mobileList.className = "mobile-services";
-      mobileList.innerHTML = serviceLinks
-        .map(([label, href]) => `<a href="${href}">${label}</a>`)
+      mobileList.innerHTML = [
+        ["See All Services", "/services.html"],
+        ...serviceLinks
+      ]
+        .map(([label, href], index) => `<a class="${index === 0 ? "mobile-services__all" : ""}" href="${href}">${label}</a>`)
         .join("");
       mobileServices.insertAdjacentElement("afterend", mobileList);
+
+      mobileServices.addEventListener("click", (event) => {
+        event.preventDefault();
+        const isOpen = mobileList.classList.toggle("is-open");
+        mobileServices.classList.toggle("is-open", isOpen);
+        mobileServices.setAttribute("aria-expanded", String(isOpen));
+      });
     }
   }
 
@@ -165,6 +175,26 @@
       brand.insertAdjacentHTML(
         "afterbegin",
         '<i class="ri-key-2-line brand-mark__icon" aria-hidden="true"></i>'
+      );
+    });
+  }
+
+  function setupMobileHeaderCallButton() {
+    qsa(".site-header .header-actions").forEach((actions) => {
+      if (actions.querySelector(".header-call-icon")) return;
+      actions.insertAdjacentHTML(
+        "afterbegin",
+        '<a class="header-call-icon" data-phone-link href="#" aria-label="Call now"><i class="ri-phone-fill" aria-hidden="true"></i></a>'
+      );
+    });
+  }
+
+  function setupMenuToggleIcon() {
+    qsa("[data-menu-toggle]").forEach((button) => {
+      if (button.querySelector(".menu-toggle__icon")) return;
+      button.insertAdjacentHTML(
+        "beforeend",
+        '<i class="ri-menu-3-line menu-toggle__icon" aria-hidden="true"></i>'
       );
     });
   }
@@ -207,7 +237,12 @@
 
     openButton.addEventListener("click", () => setOpen(true));
     closeButton.addEventListener("click", () => setOpen(false));
-    links.forEach((link) => link.addEventListener("click", () => setOpen(false)));
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (link.classList.contains("mobile-services-trigger")) return;
+        setOpen(false);
+      });
+    });
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape") setOpen(false);
     });
@@ -308,27 +343,21 @@
       };
 
       setState(item.hasAttribute("open"));
+      let closeTimer;
 
       summary.addEventListener("click", (event) => {
         event.preventDefault();
-        if (item.classList.contains("is-animating")) return;
+        window.clearTimeout(closeTimer);
 
-        const isOpen = item.hasAttribute("open");
-
-        if (isOpen) {
-          item.classList.add("is-animating");
+        if (item.open) {
           item.classList.remove("is-open");
-          const handleCloseEnd = (transitionEvent) => {
-            if (transitionEvent.propertyName !== "grid-template-rows") return;
-            content.removeEventListener("transitionend", handleCloseEnd);
-            item.removeAttribute("open");
-            item.classList.remove("is-animating");
-          };
-          content.addEventListener("transitionend", handleCloseEnd);
+          closeTimer = window.setTimeout(() => {
+            item.open = false;
+          }, 360);
           return;
         }
 
-        item.setAttribute("open", "");
+        item.open = true;
         requestAnimationFrame(() => {
           item.classList.add("is-open");
         });
@@ -336,10 +365,62 @@
     });
   }
 
+  function setupMobileTestimonials() {
+    qsa(".testimonials-home__list").forEach((list) => {
+      const cards = Array.from(list.querySelectorAll(".testimonial-card"));
+      if (cards.length <= 2 || list.nextElementSibling?.classList.contains("testimonials-toggle")) return;
+
+      cards.slice(2).forEach((card) => {
+        card.classList.add("is-mobile-extra");
+      });
+
+      const button = document.createElement("button");
+      button.className = "testimonials-toggle";
+      button.type = "button";
+      button.setAttribute("aria-expanded", "false");
+      button.innerHTML = '<span>Show More</span><i class="ri-arrow-down-s-line" aria-hidden="true"></i>';
+      list.insertAdjacentElement("afterend", button);
+
+      button.addEventListener("click", () => {
+        const isExpanded = list.classList.toggle("is-expanded");
+        button.classList.toggle("is-expanded", isExpanded);
+        button.setAttribute("aria-expanded", String(isExpanded));
+        button.querySelector("span").textContent = isExpanded ? "Show Less" : "Show More";
+      });
+    });
+  }
+
+  function setupServiceGuidanceCta() {
+    const layout = qs(".service-guidance__layout");
+    const intro = qs(".service-guidance__intro");
+    const button = qs(".service-guidance__intro .button");
+    if (!layout || !intro || !button) return;
+
+    const placeholder = document.createComment("service guidance cta");
+    button.parentNode.insertBefore(placeholder, button);
+
+    const moveButton = () => {
+      if (window.matchMedia("(max-width: 860px)").matches) {
+        if (button.parentNode !== layout) layout.appendChild(button);
+        button.classList.add("service-guidance__mobile-cta");
+        return;
+      }
+
+      if (button.parentNode !== intro) intro.insertBefore(button, placeholder.nextSibling);
+      button.classList.remove("service-guidance__mobile-cta");
+    };
+
+    moveButton();
+    window.addEventListener("resize", moveButton);
+  }
+
   injectConfig();
   renderFooter();
   setupFavicon();
   setupBrandLogos();
+  setupMobileHeaderCallButton();
+  setupMenuToggleIcon();
+  injectConfig();
   setupServiceNavigation();
   setupHeader();
   setupMobileMenu();
@@ -347,4 +428,6 @@
   setupRevealAnimations();
   setupFormDemo();
   setupFaqAccordion();
+  setupMobileTestimonials();
+  setupServiceGuidanceCta();
 })();
