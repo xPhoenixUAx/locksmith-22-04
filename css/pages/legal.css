@@ -1,3 +1,62 @@
 .legal-content {
   padding-top: 30px;
 }
+
+.legal-copy {
+  display: grid;
+  gap: 18px;
+  max-width: 980px;
+  padding: clamp(28px, 4vw, 54px);
+}
+
+.legal-copy h2 {
+  margin-top: 18px;
+  color: #173f85;
+  font-size: clamp(1.55rem, 2vw, 2.1rem);
+  line-height: 1.18;
+}
+
+.legal-copy h2:first-child {
+  margin-top: 0;
+}
+
+.legal-copy h3 {
+  margin-top: 8px;
+  color: #222831;
+  font-size: clamp(1.15rem, 1.5vw, 1.45rem);
+  line-height: 1.2;
+}
+
+.legal-copy p,
+.legal-copy li {
+  color: #2f3d52;
+  font-size: 1rem;
+  line-height: 1.68;
+}
+
+.legal-copy ul {
+  display: grid;
+  gap: 8px;
+  padding-left: 0;
+}
+
+.legal-copy li {
+  position: relative;
+  padding-left: 22px;
+}
+
+.legal-copy li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.legal-copy a {
+  color: #173f85;
+  font-weight: 800;
+}

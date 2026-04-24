@@ -159,6 +159,25 @@
     }
   }
 
+  function setupBrandLogos() {
+    qsa(".site-header .brand-mark, .mobile-menu .brand-mark").forEach((brand) => {
+      if (brand.querySelector(".brand-mark__icon")) return;
+      brand.insertAdjacentHTML(
+        "afterbegin",
+        '<i class="ri-key-2-line brand-mark__icon" aria-hidden="true"></i>'
+      );
+    });
+  }
+
+  function setupFavicon() {
+    if (qs('link[rel="icon"]')) return;
+    const favicon = document.createElement("link");
+    favicon.rel = "icon";
+    favicon.type = "image/svg+xml";
+    favicon.href = "/img/common/favicon.svg";
+    document.head.appendChild(favicon);
+  }
+
   function setupHeader() {
     const header = qs("[data-header]");
     if (!header) return;
@@ -319,6 +338,8 @@
 
   injectConfig();
   renderFooter();
+  setupFavicon();
+  setupBrandLogos();
   setupServiceNavigation();
   setupHeader();
   setupMobileMenu();

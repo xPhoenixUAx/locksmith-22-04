@@ -268,7 +268,17 @@ ul {
 
 .brand-mark {
   display: inline-grid;
-  gap: 4px;
+  grid-template-columns: auto 1fr;
+  column-gap: 10px;
+  row-gap: 4px;
+  align-items: center;
+}
+
+.brand-mark__icon {
+  grid-row: 1 / span 2;
+  color: #173f85;
+  font-size: 2rem;
+  line-height: 1;
 }
 
 .brand-mark__eyebrow {
@@ -283,6 +293,10 @@ ul {
   font-size: 1.2rem;
   font-weight: 800;
   letter-spacing: -0.02em;
+}
+
+.brand-mark--mobile .brand-mark__icon {
+  color: #ffffff;
 }
 
 .desktop-nav {
