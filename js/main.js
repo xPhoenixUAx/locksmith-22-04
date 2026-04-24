@@ -9,12 +9,6 @@
     });
   };
 
-  const setHtml = (selector, value) => {
-    qsa(selector).forEach((node) => {
-      node.innerHTML = value;
-    });
-  };
-
   const setLink = (selector, href, text) => {
     qsa(selector).forEach((node) => {
       node.setAttribute("href", href);
@@ -41,6 +35,7 @@
     setText("[data-disclaimer-full]", config.disclaimerFull || "");
     setText("[data-cta-primary]", config.ctaPrimary || "");
     setText("[data-cta-secondary]", config.ctaSecondary || "");
+    setText("[data-copyright-line]", config.copyrightLine || "");
     setText("[data-phone-text]", config.phoneDisplay || "");
     setText("[data-phone-button-label]", config.phoneButtonLabel || config.phoneDisplay || "");
     setText("[data-email-text]", config.email || "");
@@ -54,17 +49,17 @@
     if (!footer) return;
 
     const year = new Date().getFullYear();
-    const address = [config.addressLine1, config.addressLine2].filter(Boolean).join(", ");
     footer.innerHTML = `
       <div class="container">
         <div class="site-footer__inner">
           <div class="site-footer__grid">
             <div class="footer-brand">
-              <a class="footer-brand__mark" href="/index.html" aria-label="${config.companyName || "Home"}">
+              <a class="footer-brand__mark" href="/index.html" aria-label="Home">
                 <i class="ri-key-2-line" aria-hidden="true"></i>
-                <span>${config.companyName || ""}</span>
+                <span data-company-name></span>
               </a>
-              <p>${config.footerTextPrimary || ""}</p>
+              <p data-footer-text-primary></p>
+              <p class="footer-brand__secondary" data-footer-text-secondary></p>
             </div>
             <div class="footer-column">
               <h3>Quick Links</h3>
@@ -92,22 +87,25 @@
             <div class="footer-column">
               <h3>Contact Us</h3>
               <div class="footer-contact">
-                <p>${address}</p>
-                <a href="mailto:${config.email || ""}">${config.email || ""}</a>
-                <a href="tel:${config.phone || ""}">${config.phoneDisplay || ""}</a>
-                <p>${config.companyId || ""}</p>
+                <p data-company-address></p>
+                <a data-email-link href="#"><span data-email-text></span></a>
+                <a data-phone-link href="#"><span data-phone-text></span></a>
+                <p data-company-id></p>
               </div>
             </div>
           </div>
           <div class="footer-base">
-            <span>&copy; ${year} ${config.copyrightLine || ""}</span>
+            <div class="footer-base__identity">
+              <span>&copy; ${year} <span data-copyright-line></span></span>
+              <span><span data-company-name></span> | <span data-company-address></span> | <span data-company-id></span></span>
+            </div>
             <div class="footer-base__links">
               <a href="/cookie.html">Cookie Policy</a>
               <a href="/privacy.html">Privacy Policy</a>
               <a href="/terms.html">Terms Of Use</a>
             </div>
           </div>
-          <p class="footer-disclaimer">${config.disclaimerFull || ""}</p>
+          <p class="footer-disclaimer" data-disclaimer-full></p>
         </div>
       </div>
     `;
@@ -414,14 +412,13 @@
     window.addEventListener("resize", moveButton);
   }
 
-  injectConfig();
   renderFooter();
   setupFavicon();
   setupBrandLogos();
   setupMobileHeaderCallButton();
   setupMenuToggleIcon();
-  injectConfig();
   setupServiceNavigation();
+  injectConfig();
   setupHeader();
   setupMobileMenu();
   setupLenis();
