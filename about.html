@@ -63,105 +63,211 @@
     </aside>
 
     <main>
-      <section class="page-hero about-hero">
-        <div class="container about-hero__grid">
-          <div data-reveal="fade-up">
-            <span class="section-chip">About the service</span>
-            <h1>A locksmith-focused access service shaped around trust, clarity, and better request framing.</h1>
-            <p><span data-company-name></span> is positioned as a clearer way to navigate urgent and non-urgent locksmith needs. The emphasis is on understanding the request, separating service categories, and reducing confusion around what kind of help is actually relevant.</p>
-          </div>
-          <div class="about-hero__card glass-panel" data-reveal="fade-left">
-            <strong>What defines the experience</strong>
-            <ul>
-              <li>Clear request framing before the next step is chosen</li>
-              <li>Separation of residential, commercial, automotive, and urgent cases</li>
-              <li>Attention to authorization, hardware context, and likely scope</li>
-              <li>Guidance shaped around how the property or vehicle is actually used</li>
-            </ul>
+      <section class="about-hero">
+        <div class="about-hero__media">
+          <img
+            src="/img/hero-bg/about-bg.webp"
+            alt="Locksmith working on door hardware"
+          />
+        </div>
+        <div class="about-hero__overlay"></div>
+        <div class="container about-hero__content">
+          <div class="about-hero__inner" data-reveal="fade-up">
+            <h1>About</h1>
+            <nav class="about-hero__crumbs" aria-label="Breadcrumb">
+              <a href="/index.html">Home</a>
+              <span><i class="ri-arrow-right-s-line" aria-hidden="true"></i></span>
+              <span aria-current="page">About</span>
+            </nav>
           </div>
         </div>
       </section>
 
-      <section class="section story-section">
-        <div class="container story-layout">
-          <div class="story-image glass-panel" data-reveal="fade-up">
-            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80" alt="Placeholder: locksmith tools and precision hardware layout">
-            <!-- Placeholder: locksmith tools and premium hardware -->
+      <section class="section about-story">
+        <div class="container about-story__grid">
+          <div class="about-story__copy" data-reveal="fade-up">
+            <span class="section-chip">Our Story</span>
+            <h2>Reliable Locksmith Services <em>Without The Stress</em></h2>
+            <p>
+              Locksmith requests can be urgent, confusing, or sensitive. This
+              service is structured to make lock and key needs easier to sort,
+              from residential access issues to commercial security updates and
+              automotive key support.
+            </p>
+            <p>
+              The experience is built around clear categories, practical request
+              details, and straightforward next steps, so visitors can describe
+              the situation without sorting through generic service claims.
+            </p>
+            <p>
+              Trust starts with clarity: what type of access issue is happening,
+              what kind of property or vehicle is involved, and what outcome is
+              likely needed before the request moves forward.
+            </p>
+            <a class="button button--primary about-story__button" href="/services.html">
+              <span class="button__shine"></span>
+              <span>View All Services</span>
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
+            </a>
           </div>
-          <div class="story-copy" data-reveal="fade-left">
-            <span class="section-chip">Service story</span>
-            <h2>Built for people who need clearer direction when access-related problems appear suddenly.</h2>
-            <p>The service narrative centers on calm structure: reading the situation carefully, separating entry recovery from upgrade work, and making the request easier to understand before any decision is made. That makes the experience more relevant to homeowners, property managers, businesses, and drivers comparing their options under pressure.</p>
-            <p>Rather than presenting every lock-related issue as interchangeable, the site treats locksmith demand as a set of distinct access scenarios that deserve clearer explanation.</p>
+          <figure class="about-story__image" data-reveal="fade-left">
+            <img
+              src="/img/about-main/about-main.webp"
+              alt="Locksmith working on a residential door lock"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section about-choice">
+        <div class="container about-choice__grid">
+          <div class="about-choice__intro" data-reveal="fade-up">
+            <span class="section-chip">Why Choose Us</span>
+            <h2>The Trusted Choice For <em>Everyday Security</em></h2>
+            <p>
+              Clear request paths help visitors understand common locksmith
+              situations without pressure. The goal is simple: make access,
+              key, and hardware needs easier to describe before the next step is
+              chosen.
+            </p>
+          </div>
+
+          <div class="about-choice__cards">
+            <article class="about-choice-card" data-reveal="fade-up">
+              <div class="about-choice-card__icon">
+                <i class="ri-flashlight-fill" aria-hidden="true"></i>
+              </div>
+              <h3>Fast Request Routing</h3>
+              <p>
+                Urgent lockouts, broken keys, and access issues are separated
+                from planned upgrades so the request can be framed quickly.
+              </p>
+            </article>
+
+            <article class="about-choice-card" data-reveal="fade-up" data-reveal-delay="0.06">
+              <div class="about-choice-card__icon">
+                <i class="ri-tools-fill" aria-hidden="true"></i>
+              </div>
+              <h3>Practical Service Context</h3>
+              <p>
+                Residential, commercial, automotive, and emergency categories
+                keep the details relevant to the actual lock or access problem.
+              </p>
+            </article>
+
+            <article class="about-choice-card" data-reveal="fade-up" data-reveal-delay="0.12">
+              <div class="about-choice-card__icon">
+                <i class="ri-time-fill" aria-hidden="true"></i>
+              </div>
+              <h3>24/7 Situation Support</h3>
+              <p>
+                Around-the-clock request options help distinguish immediate
+                access needs from non-urgent repair, rekeying, or upgrade work.
+              </p>
+            </article>
+
+            <article class="about-choice-card" data-reveal="fade-up" data-reveal-delay="0.18">
+              <div class="about-choice-card__icon">
+                <i class="ri-hand-heart-fill" aria-hidden="true"></i>
+              </div>
+              <h3>Clarity-First Experience</h3>
+              <p>
+                Plain-language guidance reduces guesswork around service type,
+                authorization, hardware condition, and likely request scope.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="section principles">
+      <section class="section about-standards">
         <div class="container">
-          <div class="section-heading section-heading--split">
+          <div class="about-standards__header">
             <div data-reveal="fade-up">
-              <span class="section-chip">Approach</span>
-              <h2>Three principles shape the site structure.</h2>
+              <span class="section-chip">Why Keyfix</span>
+              <h2>Why <em>Trust Keyfix</em></h2>
             </div>
-            <p data-reveal="fade-up" data-reveal-delay="0.08">These standards help the experience stay calm and useful even when the underlying request is urgent.</p>
+            <p data-reveal="fade-up" data-reveal-delay="0.08">
+              Locksmith requests are easier to evaluate when credential,
+              insurance, training, and product context are clearly separated
+              before a visitor chooses the next step.
+            </p>
           </div>
-          <div class="principle-grid">
-            <article class="principle-card glass-panel" data-reveal="fade-up">
-              <h3>Classify before deciding</h3>
-              <p>Effective request handling starts with understanding why access failed or where control has been lost. That keeps the next step grounded instead of reactive.</p>
+
+          <div class="about-standards__grid">
+            <article class="about-standard-card" data-reveal="fade-up">
+              <div class="about-standard-card__icon">
+                <i class="ri-profile-fill" aria-hidden="true"></i>
+              </div>
+              <h3>License Context</h3>
+              <p>
+                Access-sensitive requests may depend on local rules,
+                authorization checks, and service category. Clear intake helps
+                identify what information should be prepared.
+              </p>
             </article>
-            <article class="principle-card" data-reveal="fade-up" data-reveal-delay="0.08">
-              <h3>Separate service paths clearly</h3>
-              <p>Not every issue points to full replacement. Some situations fit rekeying, duplication, extraction, or upgrade evaluation, and that should be visible early.</p>
+
+            <article class="about-standard-card" data-reveal="fade-up" data-reveal-delay="0.06">
+              <div class="about-standard-card__icon">
+                <i class="ri-shield-check-fill" aria-hidden="true"></i>
+              </div>
+              <h3>Insurance &amp; Bonding</h3>
+              <p>
+                Property, vehicle, and business access issues often require
+                careful handling. Request clarity helps visitors understand why
+                coverage and accountability details matter.
+              </p>
             </article>
-            <article class="principle-card" data-reveal="fade-up" data-reveal-delay="0.16">
-              <h3>Reduce ambiguity</h3>
-              <p>The site should make it easier to understand what kind of help may be relevant, what checks may be needed, and what usually comes next.</p>
+
+            <article class="about-standard-card" data-reveal="fade-up" data-reveal-delay="0.12">
+              <div class="about-standard-card__icon">
+                <i class="ri-award-fill" aria-hidden="true"></i>
+              </div>
+              <h3>Professional Training</h3>
+              <p>
+                Different locks, cylinders, smart devices, and vehicle systems
+                need different skills. The site keeps these needs separated
+                instead of treating every request the same.
+              </p>
+            </article>
+
+            <article class="about-standard-card" data-reveal="fade-up" data-reveal-delay="0.18">
+              <div class="about-standard-card__icon">
+                <i class="ri-building-2-fill" aria-hidden="true"></i>
+              </div>
+              <h3>Hardware Knowledge</h3>
+              <p>
+                Brand, model, door condition, access control setup, and key type
+                can all change the service path. Better structure helps capture
+                those details early.
+              </p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section trust-section">
-        <div class="container trust-layout">
-          <div class="trust-layout__copy" data-reveal="fade-up">
-            <span class="section-chip">Trust signals</span>
-            <h2>Confidence comes from process, discretion, and clear expectations.</h2>
-            <p>Access-related searches often happen during stressful moments: locked homes, active offices, disabled vehicles, and properties where security already feels uncertain. Trust grows when the request is described clearly, authorization is treated seriously, and the next step is easy to understand.</p>
-          </div>
-          <div class="trust-layout__list glass-panel" data-reveal="fade-left">
-            <div>
-              <strong>Verification</strong>
-              <span>Access-sensitive cases may require ownership or control checks.</span>
-            </div>
-            <div>
-              <strong>Communication</strong>
-              <span>Plain-language structure makes categories and likely outcomes easier to compare.</span>
-            </div>
-            <div>
-              <strong>Context</strong>
-              <span>Door fit, key control, electronics, and urgency all affect the request path.</span>
-            </div>
-            <div>
-              <strong>Follow-through</strong>
-              <span>Replacement, reinforcement, or credential changes may still matter after the immediate issue is solved.</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section cta-section">
+      <section class="section about-cta" aria-labelledby="about-cta-title">
         <div class="container">
-          <div class="cta-panel glass-panel" data-reveal="fade-up">
-            <div>
-              <span class="section-chip">Sort the request first</span>
-              <h2>Need to make sense of an access problem before choosing the next step?</h2>
+          <div class="about-cta__panel" data-reveal="fade-up">
+            <div class="about-cta__content">
+              <h2 id="about-cta-title">Need A <em>Locksmith Today?</em></h2>
+              <p>
+                Tell us what you're dealing with-lockout, repair, rekey, or
+                upgrade-and we'll guide the request toward the right solution
+                fast.
+              </p>
+              <a class="button button--primary about-cta__button" href="/contact.html">
+                <span class="button__shine"></span>
+                <span>Book Appointment</span>
+                <i class="ri-arrow-right-line" aria-hidden="true"></i>
+              </a>
             </div>
-            <div class="cta-panel__actions">
-              <a class="button button--primary" data-phone-link href="#"><span data-cta-primary></span></a>
-              <a class="button button--ghost" href="/contact.html">Open request intake</a>
-            </div>
+            <figure class="about-cta__image">
+              <img
+                src="/img/services-cta.webp"
+                alt="Locksmith preparing door hardware for an access request"
+              />
+            </figure>
           </div>
         </div>
       </section>

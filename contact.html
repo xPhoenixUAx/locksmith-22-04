@@ -63,71 +63,88 @@
     </aside>
 
     <main>
-      <section class="page-hero contact-hero">
-        <div class="container contact-hero__grid">
-          <div data-reveal="fade-up">
-            <span class="section-chip">Contact and intake</span>
-            <h1>Choose the fastest route to clarify a locksmith request.</h1>
-            <p>Call for urgent access issues, email for non-urgent questions, or send a message below with property type, issue, and preferred timing to make the request easier to sort.</p>
-            <div class="contact-hero__actions">
-              <a class="button button--primary" data-phone-link href="#"><span data-phone-button-label></span></a>
-              <a class="button button--ghost" data-email-link href="#"><span data-email-text></span></a>
-            </div>
-          </div>
-          <div class="contact-hero__card glass-panel" data-reveal="fade-left">
-            <strong>Response guidance</strong>
-            <ul>
-              <li>Use phone for lockouts, broken keys, and immediate access issues</li>
-              <li>Use email for non-urgent questions, quotes, and upgrade planning</li>
-              <li>Service area: <span data-service-area></span></li>
-            </ul>
+      <section class="contact-hero">
+        <div class="contact-hero__background"></div>
+        <div class="container contact-hero__content">
+          <div class="contact-hero__inner" data-reveal="fade-up">
+            <h1>Contact</h1>
+            <nav class="contact-hero__crumbs" aria-label="Breadcrumb">
+              <a href="/index.html">Home</a>
+              <span><i class="ri-arrow-right-s-line" aria-hidden="true"></i></span>
+              <span aria-current="page">Contact</span>
+            </nav>
           </div>
         </div>
       </section>
 
-      <section class="section contact-layout">
-        <div class="container contact-layout__grid">
-          <div class="contact-cards">
-            <article class="contact-card glass-panel" data-reveal="fade-up">
-              <span class="section-chip">Phone</span>
-              <h2>Urgent requests</h2>
-              <a class="contact-link" data-phone-link href="#"><span data-phone-text></span></a>
-              <p>Best for urgent lockouts, broken key situations, vehicle access, and fast triage when time matters.</p>
-            </article>
-            <article class="contact-card" data-reveal="fade-up" data-reveal-delay="0.08">
-              <span class="section-chip">Email</span>
-              <h2>Non-urgent questions</h2>
-              <a class="contact-link" data-email-link href="#"><span data-email-text></span></a>
-              <p>Useful for photos, property details, multi-door projects, business requests, and upgrade-related questions.</p>
-            </article>
-            <article class="contact-card" data-reveal="fade-up" data-reveal-delay="0.16">
-              <span class="section-chip">Location</span>
-              <h2>Service area and hours</h2>
-              <p data-company-address></p>
-              <p data-business-hours></p>
-              <p data-company-id></p>
-            </article>
+      <section class="section contact-intake">
+        <div class="container contact-intake__grid">
+          <div class="contact-intake__copy" data-reveal="fade-up">
+            <h2>Need A <em>Locksmith Right Now?</em></h2>
+            <p>
+              Whether it's an emergency or a planned security upgrade, use the
+              form to describe the request and include the details that help
+              route it clearly.
+            </p>
+
+            <div class="contact-info-stack">
+              <a class="contact-info-item" data-phone-link href="#">
+                <i class="ri-phone-fill" aria-hidden="true"></i>
+                <span>
+                  <strong>Call directly</strong>
+                  <small data-phone-text></small>
+                </span>
+              </a>
+              <a class="contact-info-item" data-email-link href="#">
+                <i class="ri-mail-fill" aria-hidden="true"></i>
+                <span>
+                  <strong>Email requests</strong>
+                  <small data-email-text></small>
+                </span>
+              </a>
+              <div class="contact-info-item">
+                <i class="ri-map-pin-2-fill" aria-hidden="true"></i>
+                <span>
+                  <strong>Service area</strong>
+                  <small data-service-area></small>
+                </span>
+              </div>
+              <div class="contact-info-item">
+                <i class="ri-time-fill" aria-hidden="true"></i>
+                <span>
+                  <strong>Hours</strong>
+                  <small data-business-hours></small>
+                </span>
+              </div>
+            </div>
           </div>
 
-          <div class="contact-form-card glass-panel" data-reveal="fade-left">
-            <span class="section-chip">Message form</span>
-            <h2>Send a request</h2>
+          <div class="contact-form-panel" data-reveal="fade-left">
             <form class="contact-form">
+              <div class="contact-form__row">
+                <label>
+                  Full Name
+                  <input type="text" name="name" placeholder="Text">
+                </label>
+                <label>
+                  Email Address
+                  <input type="email" name="email" placeholder="Email">
+                </label>
+              </div>
+              <div class="contact-form__row">
+                <label>
+                  Telephone
+                  <input type="tel" name="phone" placeholder="Telephone">
+                </label>
+                <label>
+                  Date
+                  <input type="text" name="date" placeholder="Date">
+                </label>
+              </div>
               <label>
-                Full name
-                <input type="text" name="name" placeholder="Request name">
-              </label>
-              <label>
-                Phone number
-                <input type="tel" name="phone" placeholder="Best callback number">
-              </label>
-              <label>
-                Email address
-                <input type="email" name="email" placeholder="you@example.com">
-              </label>
-              <label>
-                Service type
+                Select
                 <select name="service">
+                  <option>Select</option>
                   <option>Residential locksmith</option>
                   <option>Commercial locksmith</option>
                   <option>Automotive locksmith</option>
@@ -135,14 +152,24 @@
                 </select>
               </label>
               <label>
-                Message
-                <textarea name="message" rows="6" placeholder="Describe the issue, property or vehicle type, location, and timing needs."></textarea>
+                Textarea
+                <textarea name="message" rows="7" placeholder="Textarea"></textarea>
               </label>
-              <button class="button button--primary button--block" type="submit">Send Request</button>
-              <p class="form-note">This static demo form is styled for production use. Connect it to your preferred intake backend or CRM endpoint.</p>
+              <button class="button button--primary contact-form__button" type="submit">
+                Book Appointment
+              </button>
             </form>
           </div>
         </div>
+      </section>
+
+      <section class="contact-map" aria-label="Service area map">
+        <iframe
+          title="Service area map"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-124.848974%2C24.396308%2C-66.885444%2C49.384358&amp;layer=mapnik"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
       </section>
     </main>
 

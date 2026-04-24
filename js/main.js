@@ -85,10 +85,14 @@
             <div class="footer-column">
               <h3>Our Services</h3>
               <div class="footer-nav">
-                <a href="/services.html#residential">Residential Locksmith</a>
-                <a href="/services.html#commercial">Commercial Locksmith</a>
-                <a href="/services.html#automotive">Automotive Locksmith</a>
-                <a href="/services.html#emergency">Emergency Locksmith</a>
+                <a href="/residential-locksmith.html">Residential Locksmith</a>
+                <a href="/commercial-locksmith.html">Commercial Locksmith</a>
+                <a href="/automotive-locksmith.html">Automotive Locksmith</a>
+                <a href="/emergency-locksmith.html">Emergency Locksmith</a>
+                <a href="/installation-repair.html">Installation & Repair</a>
+                <a href="/smart-lock-solutions.html">Smart Lock Solutions</a>
+                <a href="/key-duplication.html">Key Duplication</a>
+                <a href="/safe-vault-services.html">Safe & Vault Services</a>
               </div>
             </div>
             <div class="footer-column">
@@ -101,7 +105,7 @@
               </div>
             </div>
           </div>
-            <div class="footer-base">
+          <div class="footer-base">
             <span>&copy; ${year} ${config.copyrightLine || ""}</span>
             <div class="footer-base__links">
               <a href="/cookie.html">Cookie Policy</a>
@@ -109,9 +113,50 @@
               <a href="/terms.html">Terms Of Use</a>
             </div>
           </div>
+          <p class="footer-disclaimer">${config.disclaimerFull || ""}</p>
         </div>
       </div>
     `;
+  }
+
+  function setupServiceNavigation() {
+    const serviceLinks = [
+      ["Residential Locksmith", "/residential-locksmith.html"],
+      ["Commercial Locksmith", "/commercial-locksmith.html"],
+      ["Automotive Locksmith", "/automotive-locksmith.html"],
+      ["Emergency Locksmith", "/emergency-locksmith.html"],
+      ["Installation & Repair", "/installation-repair.html"],
+      ["Smart Lock Solutions", "/smart-lock-solutions.html"],
+      ["Key Duplication", "/key-duplication.html"],
+      ["Safe & Vault Services", "/safe-vault-services.html"]
+    ];
+
+    const desktopServices = qs('.desktop-nav a[href="/services.html"]');
+    if (desktopServices && !desktopServices.closest(".nav-dropdown")) {
+      const dropdown = document.createElement("div");
+      dropdown.className = "nav-dropdown";
+      desktopServices.parentNode.insertBefore(dropdown, desktopServices);
+      dropdown.appendChild(desktopServices);
+      desktopServices.classList.add("nav-dropdown__trigger");
+      desktopServices.insertAdjacentHTML("beforeend", '<i class="ri-arrow-down-s-line" aria-hidden="true"></i>');
+
+      const panel = document.createElement("div");
+      panel.className = "nav-dropdown__panel";
+      panel.innerHTML = serviceLinks
+        .map(([label, href]) => `<a href="${href}">${label}</a>`)
+        .join("");
+      dropdown.appendChild(panel);
+    }
+
+    const mobileServices = qs('.mobile-menu__nav a[href="/services.html"]');
+    if (mobileServices && !qs(".mobile-services")) {
+      const mobileList = document.createElement("div");
+      mobileList.className = "mobile-services";
+      mobileList.innerHTML = serviceLinks
+        .map(([label, href]) => `<a href="${href}">${label}</a>`)
+        .join("");
+      mobileServices.insertAdjacentElement("afterend", mobileList);
+    }
   }
 
   function setupHeader() {
@@ -215,16 +260,66 @@
   }
 
   function setupFaqAccordion() {
-    qsa(".faq-item").forEach((item) => {
-      item.classList.toggle("is-open", item.hasAttribute("open"));
-      item.addEventListener("toggle", () => {
-        item.classList.toggle("is-open", item.hasAttribute("open"));
+    qsa(".faq-item, .service-detail-faq details").forEach((item) => {
+      const summary = item.querySelector("summary");
+      if (!summary) return;
+
+      let content = item.querySelector(".faq-item__content, .faq-accordion__content");
+      if (!content) {
+        content = document.createElement("div");
+        content.className = "faq-accordion__content";
+        Array.from(item.childNodes).forEach((node) => {
+          if (node !== summary) content.appendChild(node);
+        });
+        item.appendChild(content);
+      }
+
+      let inner = content.querySelector(".faq-accordion__inner");
+      if (!inner) {
+        inner = document.createElement("div");
+        inner.className = "faq-accordion__inner";
+        Array.from(content.childNodes).forEach((node) => {
+          inner.appendChild(node);
+        });
+        content.appendChild(inner);
+      }
+
+      const setState = (isOpen) => {
+        item.classList.toggle("is-open", isOpen);
+      };
+
+      setState(item.hasAttribute("open"));
+
+      summary.addEventListener("click", (event) => {
+        event.preventDefault();
+        if (item.classList.contains("is-animating")) return;
+
+        const isOpen = item.hasAttribute("open");
+
+        if (isOpen) {
+          item.classList.add("is-animating");
+          item.classList.remove("is-open");
+          const handleCloseEnd = (transitionEvent) => {
+            if (transitionEvent.propertyName !== "grid-template-rows") return;
+            content.removeEventListener("transitionend", handleCloseEnd);
+            item.removeAttribute("open");
+            item.classList.remove("is-animating");
+          };
+          content.addEventListener("transitionend", handleCloseEnd);
+          return;
+        }
+
+        item.setAttribute("open", "");
+        requestAnimationFrame(() => {
+          item.classList.add("is-open");
+        });
       });
     });
   }
 
   injectConfig();
   renderFooter();
+  setupServiceNavigation();
   setupHeader();
   setupMobileMenu();
   setupLenis();

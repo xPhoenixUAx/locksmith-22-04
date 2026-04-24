@@ -24,7 +24,7 @@ window.SITE_CONFIG = {
   disclaimerShort:
     "Availability, response windows, pricing, and hardware compatibility may vary by location, request type, and verification requirements.",
   disclaimerFull:
-    "Service availability, arrival windows, pricing, and hardware recommendations can vary based on location, authorization checks, door or vehicle condition, prior damage, electronic compatibility, and current scheduling capacity.",
+    "Disclaimer: This site is a free service to assist homeowners in connecting with local service providers. All contractors/providers are independent and this site does not warrant or guarantee any work performed. It is the responsibility of the homeowner to verify that the hired contractor furnishes the necessary license and insurance required for the work being performed. All persons depicted in a photo or video are actors or models and not contractors listed on this site.",
 
   copyrightLine: "Northline Access LLC. All rights reserved.",
 
