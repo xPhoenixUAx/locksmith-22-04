@@ -54,7 +54,7 @@
         <div class="site-footer__inner">
           <div class="site-footer__grid">
             <div class="footer-brand">
-              <a class="footer-brand__mark" href="/index.html" aria-label="Home">
+              <a class="footer-brand__mark" href="index.html" aria-label="Home">
                 <i class="ri-key-2-line" aria-hidden="true"></i>
                 <span data-company-name></span>
               </a>
@@ -64,24 +64,24 @@
             <div class="footer-column">
               <h3>Quick Links</h3>
               <nav class="footer-nav">
-                <a href="/index.html">Home</a>
-                <a href="/about.html">About</a>
-                <a href="/services.html">Services</a>
-                <a href="/index.html#faq-home">FAQ's</a>
-                <a href="/contact.html">Contact</a>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="index.html#faq-home">FAQ's</a>
+                <a href="contact.html">Contact</a>
               </nav>
             </div>
             <div class="footer-column">
               <h3>Our Services</h3>
               <div class="footer-nav">
-                <a href="/residential-locksmith.html">Residential Locksmith</a>
-                <a href="/commercial-locksmith.html">Commercial Locksmith</a>
-                <a href="/automotive-locksmith.html">Automotive Locksmith</a>
-                <a href="/emergency-locksmith.html">Emergency Locksmith</a>
-                <a href="/installation-repair.html">Installation & Repair</a>
-                <a href="/smart-lock-solutions.html">Smart Lock Solutions</a>
-                <a href="/key-duplication.html">Key Duplication</a>
-                <a href="/safe-vault-services.html">Safe & Vault Services</a>
+                <a href="residential-locksmith.html">Residential Locksmith</a>
+                <a href="commercial-locksmith.html">Commercial Locksmith</a>
+                <a href="automotive-locksmith.html">Automotive Locksmith</a>
+                <a href="emergency-locksmith.html">Emergency Locksmith</a>
+                <a href="installation-repair.html">Installation & Repair</a>
+                <a href="smart-lock-solutions.html">Smart Lock Solutions</a>
+                <a href="key-duplication.html">Key Duplication</a>
+                <a href="safe-vault-services.html">Safe & Vault Services</a>
               </div>
             </div>
             <div class="footer-column">
@@ -100,9 +100,9 @@
               <span><span data-company-name></span> | <span data-company-address></span> | <span data-company-id></span></span>
             </div>
             <div class="footer-base__links">
-              <a href="/cookie.html">Cookie Policy</a>
-              <a href="/privacy.html">Privacy Policy</a>
-              <a href="/terms.html">Terms Of Use</a>
+              <a href="cookie.html">Cookie Policy</a>
+              <a href="privacy.html">Privacy Policy</a>
+              <a href="terms.html">Terms Of Use</a>
             </div>
           </div>
           <p class="footer-disclaimer" data-disclaimer-full></p>
@@ -113,17 +113,17 @@
 
   function setupServiceNavigation() {
     const serviceLinks = [
-      ["Residential Locksmith", "/residential-locksmith.html"],
-      ["Commercial Locksmith", "/commercial-locksmith.html"],
-      ["Automotive Locksmith", "/automotive-locksmith.html"],
-      ["Emergency Locksmith", "/emergency-locksmith.html"],
-      ["Installation & Repair", "/installation-repair.html"],
-      ["Smart Lock Solutions", "/smart-lock-solutions.html"],
-      ["Key Duplication", "/key-duplication.html"],
-      ["Safe & Vault Services", "/safe-vault-services.html"]
+      ["Residential Locksmith", "residential-locksmith.html"],
+      ["Commercial Locksmith", "commercial-locksmith.html"],
+      ["Automotive Locksmith", "automotive-locksmith.html"],
+      ["Emergency Locksmith", "emergency-locksmith.html"],
+      ["Installation & Repair", "installation-repair.html"],
+      ["Smart Lock Solutions", "smart-lock-solutions.html"],
+      ["Key Duplication", "key-duplication.html"],
+      ["Safe & Vault Services", "safe-vault-services.html"]
     ];
 
-    const desktopServices = qs('.desktop-nav a[href="/services.html"]');
+    const desktopServices = qs('.desktop-nav a[href="services.html"]');
     if (desktopServices && !desktopServices.closest(".nav-dropdown")) {
       const dropdown = document.createElement("div");
       dropdown.className = "nav-dropdown";
@@ -140,7 +140,7 @@
       dropdown.appendChild(panel);
     }
 
-    const mobileServices = qs('.mobile-menu__nav a[href="/services.html"]');
+    const mobileServices = qs('.mobile-menu__nav a[href="services.html"]');
     if (mobileServices && !qs(".mobile-services")) {
       mobileServices.classList.add("mobile-services-trigger");
       mobileServices.setAttribute("href", "#");
@@ -151,7 +151,7 @@
       const mobileList = document.createElement("div");
       mobileList.className = "mobile-services";
       mobileList.innerHTML = [
-        ["See All Services", "/services.html"],
+        ["See All Services", "services.html"],
         ...serviceLinks
       ]
         .map(([label, href], index) => `<a class="${index === 0 ? "mobile-services__all" : ""}" href="${href}">${label}</a>`)
@@ -202,7 +202,7 @@
     const favicon = document.createElement("link");
     favicon.rel = "icon";
     favicon.type = "image/svg+xml";
-    favicon.href = "/img/common/favicon.svg";
+    favicon.href = "img/common/favicon.svg";
     document.head.appendChild(favicon);
   }
 
